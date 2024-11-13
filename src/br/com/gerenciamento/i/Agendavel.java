@@ -8,7 +8,5 @@ public interface Agendavel {
 	    // Método para cancelar uma aula
 	    void cancelarAula();
 	    
-	    // Método para visualizar aulas agendadas
-	    void visualizarAulas();
 	}
 

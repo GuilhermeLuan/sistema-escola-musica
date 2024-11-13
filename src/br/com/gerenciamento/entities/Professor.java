@@ -2,8 +2,9 @@ package br.com.gerenciamento.entities;
 import java.util.List;
 
 import br.com.gerenciamento.entities.curso.*;
+import br.com.gerenciamento.i.Agendavel;
 
-public class Professor extends Pessoa { // hierarquia da classe Pessoa com a subclasse Professor
+public class Professor extends Pessoa implements Agendavel { // hierarquia da classe Pessoa com a subclasse Professor
 	
 	// propriedade da subclasse Professor
 	private float Salario; 
@@ -46,6 +47,23 @@ public class Professor extends Pessoa { // hierarquia da classe Pessoa com a sub
 				"Horário: " +HorariosDisponivel + '\''+
 				"Salário: " +Salario+
 				'}';
+	}
+
+
+	//IMPLEMENTAÇÃO DOSS MÉTODOS DA INTERFACE
+	//Polimorfismo - sobrescrita do método agendarAula
+	@Override
+	public void agendarAula() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	//Polimorfismo - sobrescrita do método cancelarAula
+	@Override
+	public void cancelarAula() {
+		// TODO Auto-generated method stub
+		
 	}
 
  
