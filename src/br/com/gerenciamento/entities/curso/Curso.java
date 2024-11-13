@@ -47,4 +47,12 @@ public class Curso {
 	public void addProfessor(Professor professor) {
 		listaProfessores.add(professor);
 	}
+	
+	public void removerAluno(Aluno aluno) {
+		listaAlunos.remove(aluno);
+	}
+	
+	public void removerProfessor(Professor professor) {
+		listaProfessores.remove(professor);
+	}
 }
