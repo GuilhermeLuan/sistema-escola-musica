@@ -1,5 +1,5 @@
 package br.com.gerenciamento.entities;
-import br.com.gerenciamento.entities.cursos.Curso;
+import br.com.gerenciamento.entities.curso.Curso;
 
 public class Pessoa {
 	
