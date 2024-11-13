@@ -7,48 +7,49 @@ import br.com.gerenciamento.i.Agendavel;
 public class Professor extends Pessoa implements Agendavel { // hierarquia da classe Pessoa com a subclasse Professor
 	
 	// propriedade da subclasse Professor
-	private float Salario; 
-	private List<String> HorariosDisponivel;
+	private String Especialidade; 
+	private List<String> aulasAgendadas;
 	
-	//construtor
-	public Professor(String nome, int idade, String endereco, String cpf, Curso curso, float salario,
-			List<String> horariosDisponivel) {
+	
+	//construtoor
+	public Professor(String nome, int idade, String endereco, String cpf, Curso curso, String especialidade,
+			List<String> aulasAgendadas) {
 		super(nome, idade, endereco, cpf, curso);
-		Salario = salario;
-		HorariosDisponivel = horariosDisponivel;
+		Especialidade = especialidade;
+		this.aulasAgendadas = aulasAgendadas;
+	}
+
+	//encapsulamento 
+	public String getEspecialidade() {
+		return Especialidade;
+	}
+
+	public void setEspecialidade(String especialidade) {
+		Especialidade = especialidade;
+	}
+
+	public List<String> getAulasAgendadas() {
+		return aulasAgendadas;
+	}
+
+	public void setAulasAgendadas(List<String> aulasAgendadas) {
+		this.aulasAgendadas = aulasAgendadas;
 	}
 	
 	
-	//encapsulamento //vvvvvvvvvv
-	public float getSalario() { 
-		return Salario;
-	}
 
-	public void setSalario(float salario) {
-		Salario = salario;
-	}
-
-	public List<String> getHorariosDisponivel() {
-		return HorariosDisponivel;
-	}
-
-	public void adicionarHorario(String horario){
-		HorariosDisponivel.add(horario);
-	}
 	
-	public void removerHorario(String horario){
-		HorariosDisponivel.remove(horario);
-	}
-
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return super.toString().replace("}", "")+
-				"Horário: " +HorariosDisponivel + '\''+
-				"Salário: " +Salario+
+				"Especialidade: " +Especialidade+ '\''+
+				"Aulas Agendadas " +aulasAgendadas+
 				'}';
 	}
 
+
+	
 
 	//IMPLEMENTAÇÃO DOSS MÉTODOS DA INTERFACE
 	//Polimorfismo - sobrescrita do método agendarAula
@@ -65,6 +66,22 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
 		// TODO Auto-generated method stub
 		
 	}
+	
+	//metodo para listar as aulas agendadas para professorr
+	public void listarAulasAgendas() {
+		System.out.println("Aulas agendadas para o professor " + getNome() + ":");
+		 if (aulasAgendadas == null){
+			 System.out.println("Nenhuma aula foi agendada");
+		 }
+		 else {
+			 for(String aula : aulasAgendadas) {
+				 System.out.println("" + aula);
+	
+			 }
+		 }
+	}
+	
+	
 
  
 	
