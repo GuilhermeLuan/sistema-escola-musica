@@ -53,7 +53,7 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
 	//IMPLEMENTAÇÃO DOSS MÉTODOS DA INTERFACE
 	//Polimorfismo - sobrescrita do método agendarAula
 	@Override
-	public void agendarAula() {
+	public void agendarAula(String dataHora, String nomeDaAula) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -61,7 +61,7 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
 
 	//Polimorfismo - sobrescrita do método cancelarAula
 	@Override
-	public void cancelarAula() {
+	public void cancelarAula(String dataHora, String nomeDaAula) {
 		// TODO Auto-generated method stub
 		
 	}
