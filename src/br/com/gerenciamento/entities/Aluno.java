@@ -1,6 +1,6 @@
 package br.com.gerenciamento.entities;
 
-import br.com.gerenciamento.entities.cursos.Curso;
+import br.com.gerenciamento.entities.curso.*;
 
 //CLASSE FILHA - Aluno
 public class Aluno extends Pessoa {
@@ -24,6 +24,7 @@ public class Aluno extends Pessoa {
 		'}';
 		
 	}
+	
 	
 	
 	

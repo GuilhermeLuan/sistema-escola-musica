@@ -1,7 +1,7 @@
 package br.com.gerenciamento.entities;
 import java.util.List;
 
-import br.com.gerenciamento.entities.cursos.Curso;
+import br.com.gerenciamento.entities.curso.*;
 
 public class Professor extends Pessoa { // hierarquia da classe Pessoa com a subclasse Professor
 	
