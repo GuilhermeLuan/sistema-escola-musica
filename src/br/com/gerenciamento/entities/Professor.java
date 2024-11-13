@@ -7,11 +7,11 @@ public class Professor extends Pessoa { // hierarquia da classe Pessoa com a sub
 	
 	// propriedade da subclasse Professor
 	private float Salario; 
-	private List<Professor> HorariosDisponivel;
+	private List<String> HorariosDisponivel;
 	
 	//construtor
 	public Professor(String nome, int idade, String endereco, String cpf, Curso curso, float salario,
-			List<Professor> horariosDisponivel) {
+			List<String> horariosDisponivel) {
 		super(nome, idade, endereco, cpf, curso);
 		Salario = salario;
 		HorariosDisponivel = horariosDisponivel;
@@ -27,14 +27,17 @@ public class Professor extends Pessoa { // hierarquia da classe Pessoa com a sub
 		Salario = salario;
 	}
 
-	public List<Professor> getHorariosDisponivel() {
+	public List<String> getHorariosDisponivel() {
 		return HorariosDisponivel;
 	}
 
-	public void setHorariosDisponivel(List<Professor> horariosDisponivel) {
-		HorariosDisponivel = horariosDisponivel;
+	public void adicionarHorario(String horario){
+		HorariosDisponivel.add(horario);
 	}
-
+	
+	public void removerHorario(String horario){
+		HorariosDisponivel.remove(horario);
+	}
 
 	@Override
 	public String toString() {
