@@ -1,4 +1,4 @@
-package br.com.gerenciamento.entities;
+package br.com.gerenciamento.main;
 
 import br.com.gerenciamento.entities.curso.Curso;
 import br.com.gerenciamento.entities.curso.CursoFactory;

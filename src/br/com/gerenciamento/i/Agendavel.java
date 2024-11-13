@@ -1,4 +1,4 @@
-package br.com.gerenciamento.entities;
+package br.com.gerenciamento.i;
 
 public interface Agendavel {
 	    
