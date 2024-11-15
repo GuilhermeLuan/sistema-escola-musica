@@ -1,5 +1,7 @@
 package br.com.gerenciamento.entities.curso;
 
+import br.com.gerenciamento.enums.TipoCurso;
+
 public class CursoFactory {
 	public static Curso newCurso(TipoCurso tipoCurso, int duracaoHoras) {
 		switch (tipoCurso) {

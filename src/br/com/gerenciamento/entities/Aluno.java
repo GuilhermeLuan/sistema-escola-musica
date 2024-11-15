@@ -6,19 +6,20 @@ import java.time.LocalTime;
 
 import br.com.gerenciamento.aulas.Aula;
 import br.com.gerenciamento.entities.curso.*;
+import br.com.gerenciamento.enums.Nivel;
 import br.com.gerenciamento.i.Agendavel;
 
 //CLASSE FILHA - Aluno
 public class Aluno extends Pessoa implements Agendavel {
 	//Atributo
 	private int matricula;
-	private String nivel;
+	private Nivel nivel;
 	private List<Curso> listaDosCursos = new ArrayList<>();
 	private List<Aula> listaHorariosAulas = new ArrayList<>();;
 	
 	//Construtor
-	public Aluno(String nome, int idade, String endereco, String cpf, int matricula, String nivel) {
-		super(nome, idade, endereco, cpf);
+	public Aluno(String nome, int idade, String endereco, int matricula, Nivel nivel) {
+		super(nome, idade, endereco);
 		this.matricula = matricula;
 		this.nivel = nivel;
 	}
@@ -42,10 +43,10 @@ public class Aluno extends Pessoa implements Agendavel {
 		this.matricula = matricula;
 	}
 
-	public String getNivel() { //nivel
+	public Nivel getNivel() { 
 		return nivel;
 	}
-	public void setNivel(String nivel) {
+	public void setNivel(Nivel nivel) {
 		this.nivel = nivel;
 	}	
 
@@ -97,7 +98,6 @@ public class Aluno extends Pessoa implements Agendavel {
 	        super.getNome(),       // Obtém o nome da superclasse Pessoa
 	        super.getIdade(),      // Obtém a idade da superclasse Pessoa
 	        super.getEndereco(),   // Obtém o endereço da superclasse Pessoa
-	        super.getCpf(),        // Obtém o CPF da superclasse Pessoa
 	        this.matricula,        // Matrícula do aluno
 	        this.nivel             // Nível do aluno
 	    );

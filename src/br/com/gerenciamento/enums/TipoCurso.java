@@ -1,4 +1,4 @@
-package br.com.gerenciamento.entities.curso;
+package br.com.gerenciamento.enums;
 
 public enum TipoCurso {
 	CANTO,

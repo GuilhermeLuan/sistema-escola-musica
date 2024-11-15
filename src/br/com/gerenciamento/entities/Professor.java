@@ -11,13 +11,13 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
 	
 	// propriedade da subclasse Professor
 	private String especialidade; 
-	private List<String> aulasAgendadas;
+	private List<Aula> aulasAgendadas;
 	
 	
 	//construtoor
-	public Professor(String nome, int idade, String endereco, String cpf, Curso curso, String especialidade,
+	public Professor(String nome, int idade, String endereco, Curso curso, String especialidade,
 			List<String> aulasAgendadas) {
-		super(nome, idade, endereco, cpf);
+		super(nome, idade, endereco);
 		this.especialidade = especialidade;
 		this.aulasAgendadas = new ArrayList<>();
 	}
@@ -31,8 +31,8 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
 		this.especialidade = especialidade;
 	}
 
-	public List<String> getAulasAgendadas() {
-		return aulasAgendadas;
+	public List<Aula> getAulasAgendadas() {
+		return aulasAgendadas;	
 	}
 	
 	//IMPLEMENTAÇÃO DOSS MÉTODOS DA INTERFACE
@@ -52,15 +52,9 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
 	//metodo para listar as aulas agendadas para professorr
 	public void listarAulasAgendas() {
 		System.out.println("Aulas agendadas para o professor " + getNome() + ":");
-		 if (aulasAgendadas == null){
-			 System.out.println("Nenhuma aula foi agendada");
-		 }
-		 else {
-			 for(String aula : aulasAgendadas) {
-				 System.out.println("" + aula);
-	
-			 }
-		 }
+		 for (Aula aula : aulasAgendadas) {
+			System.out.println(aula);
+		}
 	}
 	
 	@Override
@@ -70,7 +64,6 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
             super.getNome(),           // Obtém o nome da superclasse Pessoa
             super.getIdade(),          // Obtém a idade da superclasse Pessoa
             super.getEndereco(),       // Obtém o endereço da superclasse Pessoa
-            super.getCpf(),            // Obtém o CPF da superclasse Pessoa
             this.especialidade         // Especialidade do professor
         );
     }
