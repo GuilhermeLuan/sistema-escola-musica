@@ -1,5 +1,4 @@
 package br.com.gerenciamento.entities;
-import br.com.gerenciamento.entities.curso.Curso;
 
 public class Pessoa {
 	
@@ -7,16 +6,15 @@ public class Pessoa {
     private int idade;
     private String endereco;
     private String cpf;
-    private Curso curso;
 	
-	public Pessoa(String nome, int idade, String endereco, String cpf, Curso curso) {
+	public Pessoa(String nome, int idade, String endereco, String cpf) {
+		super();
 		this.nome = nome;
 		this.idade = idade;
 		this.endereco = endereco;
 		this.cpf = cpf;
-		this.curso = curso;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -49,24 +47,11 @@ public class Pessoa {
 		this.cpf = cpf;
 	}
 	
-	public Curso getCurso() {
-		return curso;
-	}
-	
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
-	
+
 	// metodo da classe base pessoa
 	@Override
 	public String toString() {
-		return "Pessoa{" +
-				"Nome='" + nome + '\'' +
-				", Idade=" + idade +
-				", Endereco='" + endereco + '\'' +
-				", CPF='" + cpf + '\'' +
-				", Curso=" + (curso != null ? curso.toString() : "Nenhum curso cadastrado") +
-				'}';
+		return nome + ", " + idade + ", " + endereco + ", " + cpf;
 	}
 
 }
