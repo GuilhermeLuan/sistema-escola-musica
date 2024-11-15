@@ -1,13 +1,10 @@
 package br.com.gerenciamento.i;
 
-<<<<<<< HEAD
 import java.time.LocalTime;
 
-import br.com.gerenciamento.entities.Aula;
+import br.com.gerenciamento.aulas.Aula;
 
-=======
 //OBSERVER
->>>>>>> d72bac8eb2bc58ba75d2a42f0eb75eafa5b7ffe7
 public interface Agendavel {
 	    
 	    // Método para agendar uma aula

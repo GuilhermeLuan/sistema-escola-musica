@@ -3,6 +3,8 @@ package br.com.gerenciamento.entities;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalTime;
+
+import br.com.gerenciamento.aulas.Aula;
 import br.com.gerenciamento.entities.curso.*;
 import br.com.gerenciamento.i.Agendavel;
 
@@ -50,7 +52,7 @@ public class Aluno extends Pessoa implements Agendavel {
 	//IMPLEMENTAÇÃO DOSS MÉTODOS DA INTERFACE
 	//Polimorfismo - sobrescrita do método agendarAula
 	@Override
-	public void agendarAula(LocalTime dataHora, Aula aula) {	
+	public void agendarAula(LocalTime horaInicio, Aula aula) {	
 		
 	}
 

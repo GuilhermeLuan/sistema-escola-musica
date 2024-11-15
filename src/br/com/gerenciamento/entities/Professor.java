@@ -3,6 +3,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.gerenciamento.aulas.Aula;
 import br.com.gerenciamento.entities.curso.*;
 import br.com.gerenciamento.i.Agendavel;
 
