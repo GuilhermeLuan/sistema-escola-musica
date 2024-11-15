@@ -4,12 +4,14 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import br.com.gerenciamento.entities.curso.TipoCurso;
+import br.com.gerenciamento.i.Agendavel;
 
-public class Aula {
+public class Aula implements Agendavel {
 	private TipoCurso curso;
     private LocalDate data;
     private LocalTime horaInicio;
     private LocalTime horaFim;
+    private Agendavel listener;
     
 	public Aula(TipoCurso curso, LocalDate data, LocalTime horaInicio, LocalTime horaFim) {
 		super();
@@ -49,5 +51,23 @@ public class Aula {
 
 	public void setHoraFim(LocalTime horaFim) {
 		this.horaFim = horaFim;
+	}
+	
+	//OBSERVER - A aula observa se o professor ou o aluno estão agendando ou cancelando uma aula
+	//adicionando o listener
+	public void adicionarListener(Agendavel listener) {
+		this.listener = listener;
+	}
+
+	@Override
+	public void agendarAula(LocalTime horaInicio, Aula aula) {
+		listener.agendarAula(horaInicio, aula);
+		
+	}
+
+	@Override
+	public void cancelarAula(Aula aula) {
+		listener.cancelarAula(aula);
+		
 	}    
 }
