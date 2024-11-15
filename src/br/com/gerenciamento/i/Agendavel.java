@@ -1,5 +1,6 @@
 package br.com.gerenciamento.i;
 
+//OBSERVER
 public interface Agendavel {
 	    
 	    // Método para agendar uma aula

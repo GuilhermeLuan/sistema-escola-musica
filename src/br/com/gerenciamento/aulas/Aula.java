@@ -1,4 +1,4 @@
-package br.com.gerenciamento.entities;
+package br.com.gerenciamento.aulas;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
