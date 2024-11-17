@@ -1,6 +1,11 @@
 package br.com.gerenciamento.main;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+import br.com.gerenciamento.aulas.Aula;
 import br.com.gerenciamento.entities.Aluno;
+import br.com.gerenciamento.entities.Professor;
 import br.com.gerenciamento.entities.curso.Curso;
 import br.com.gerenciamento.entities.curso.CursoFactory;
 import br.com.gerenciamento.enums.Nivel;
@@ -31,5 +36,12 @@ public class TestAluno {
         
         aluno.listarCursosInscritos(); // Exemplo de lista vazia inicialmente
         aluno.listarHorariosAulas();
+        
+        Aluno aluno1 = new Aluno("Marcos", 12, "Rua B",298, Nivel.INICIANTE);
+        Professor professor = new Professor("Lucas", 34, "Rua A", curso1, null);
+        
+        Aula aulaCanto = new Aula(TipoCurso.CANTO, LocalDate.of(2024,10,12), LocalTime.of(16,0), LocalTime.of(18,0));
+        aulaCanto.adicionarListener(professor);
+        aulaCanto.agendarAula(LocalTime.of(16,0), aulaCanto);
 	}
 }

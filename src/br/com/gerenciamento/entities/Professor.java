@@ -15,8 +15,7 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
 	
 	
 	//construtoor
-	public Professor(String nome, int idade, String endereco, Curso curso, String especialidade,
-			List<String> aulasAgendadas) {
+	public Professor(String nome, int idade, String endereco, Curso curso, String especialidade) {
 		super(nome, idade, endereco);
 		this.especialidade = especialidade;
 		this.aulasAgendadas = new ArrayList<>();

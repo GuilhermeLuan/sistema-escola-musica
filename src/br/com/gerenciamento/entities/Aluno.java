@@ -91,15 +91,17 @@ public class Aluno extends Pessoa implements Agendavel {
 		listaDosCursos.remove(curso);
 	}
 
+	@Override
 	public String toString() {
 	    return String.format(
-	        "Nome: %s\nIdade: %d\nEndereço: %s\nCPF: %s\nMatrícula: %d\nNível do aluno: %s",
-	        super.getNome(),       // Obtém o nome da superclasse Pessoa
-	        super.getIdade(),      // Obtém a idade da superclasse Pessoa
-	        super.getEndereco(),   // Obtém o endereço da superclasse Pessoa
-	        this.matricula,        // Matrícula do aluno
-	        this.nivel             // Nível do aluno
+	        "Nome: %s\nIdade: %d\nEndereço: %s\nMatrícula: %d\nNível do aluno: %s",
+	        super.getNome(),       // Nome
+	        super.getIdade(),      // Idade
+	        super.getEndereco(),   // Endereço
+	        this.matricula,        // Matrícula
+	        this.nivel             // Nível (formatado automaticamente como string)
 	    );
+	
 	}
 	
 	
