@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import br.com.gerenciamento.enums.TipoCurso;
 import br.com.gerenciamento.i.Agendavel;
 
-public class Aula implements Agendavel {
+public class Aula{
 	private TipoCurso curso;
     private LocalDate data;
     private LocalTime horaInicio;
@@ -59,13 +59,11 @@ public class Aula implements Agendavel {
 		this.listener = listener;
 	}
 
-	@Override
 	public void agendarAula(LocalTime horaInicio, Aula aula) {
 		listener.agendarAula(horaInicio, aula);
 		
 	}
 
-	@Override
 	public void cancelarAula(Aula aula) {
 		listener.cancelarAula(aula);
 		

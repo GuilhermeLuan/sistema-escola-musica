@@ -54,14 +54,13 @@ public class Aluno extends Pessoa implements Agendavel {
 	//Polimorfismo - sobrescrita do método agendarAula
 	@Override
 	public void agendarAula(LocalTime horaInicio, Aula aula) {	
-		
+		System.out.println("*Aula agendada com sucesso! -> " +aula);
 	}
 
 	//Polimorfismo - sobrescrita do método cancelarAula
 	@Override
 	public void cancelarAula(Aula aula) {
-	
-		
+		System.out.println("*Aula Cancelada -> " +aula);
 	}
 	
 	//Método para listar os cursos inscritos

@@ -39,13 +39,13 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
 	//Polimorfismo - sobrescrita do método agendarAula
 	@Override
 	public void agendarAula(LocalTime horaInicio, Aula aula) {
-		// TODO Auto-generated method stub
+		System.out.println("*Aula agendada com sucesso! -> " +aula);
 		
 	}
 
 	@Override
 	public void cancelarAula(Aula aula) {
-		// TODO Auto-generated method stub
+		System.out.println("*Aula Cancelada -> " +aula);
 		
 	}
 	
