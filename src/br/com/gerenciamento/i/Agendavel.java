@@ -8,7 +8,7 @@ import br.com.gerenciamento.aulas.Aula;
 public interface Agendavel {
 	    
 	    // Método para agendar uma aula
-	    void agendarAula(LocalTime horaInicio, Aula aula);
+	    void agendarAula(Aula aula);
 	    
 	    // Método para cancelar uma aula
 	    void cancelarAula(Aula aula);

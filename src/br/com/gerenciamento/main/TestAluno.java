@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import br.com.gerenciamento.aulas.Aula;
+import br.com.gerenciamento.aulas.GerenciadorDeAulas;
 import br.com.gerenciamento.entities.Aluno;
 import br.com.gerenciamento.entities.Professor;
 import br.com.gerenciamento.entities.curso.Curso;
@@ -13,6 +14,7 @@ import br.com.gerenciamento.enums.TipoCurso;
 
 public class TestAluno {
 	public static void main(String[] args) {
+		GerenciadorDeAulas gerenciadorDeAulas = GerenciadorDeAulas.getInstancia();
 		Curso curso1 = CursoFactory.newCurso(TipoCurso.CANTO, 20);
 
 		
@@ -22,7 +24,8 @@ public class TestAluno {
             20,                    // Idade
             "Rua das Flores, 123", // Endereço
             1010,                  // Matrícula
-            Nivel.INTERMEDIARIO       // Nível
+            Nivel.INTERMEDIARIO,
+            gerenciadorDeAulas// Nível
         );
 
         // Exibindo os dados do aluno (toString sobrescrito na classe Aluno)
@@ -30,18 +33,22 @@ public class TestAluno {
 
         // Simulando métodos da classe
         aluno.listarCursosInscritos(); // Exemplo de lista vazia inicialmente
-        aluno.listarHorariosAulas();  // Exemplo de lista vazia inicialmente
    
         aluno.adicionarCurso(curso1);
         
-        aluno.listarCursosInscritos(); // Exemplo de lista vazia inicialmente
-        aluno.listarHorariosAulas();
+        aluno.listarCursosInscritos();
         
-        Aluno aluno1 = new Aluno("Marcos", 12, "Rua B",298, Nivel.INICIANTE);
-        Professor professor = new Professor("Lucas", 34, "Rua A", curso1, null);
+        Aluno aluno1 = new Aluno("Marcos", 12, "Rua B",298, Nivel.INICIANTE, gerenciadorDeAulas);
+        Professor professor = new Professor("Lucas", 34, "Rua A", curso1, "Espcialidade", gerenciadorDeAulas);
         
         Aula aulaCanto = new Aula(TipoCurso.CANTO, LocalDate.of(2024,10,12), LocalTime.of(16,0), LocalTime.of(18,0));
+        Aula aulaCanto2 = new Aula(TipoCurso.CANTO, LocalDate.of(2024,10,12), LocalTime.of(18,0), LocalTime.of(19,0));
+
         aulaCanto.adicionarListener(professor);
-        aulaCanto.agendarAula(LocalTime.of(16,0), aulaCanto);
+                
+        aulaCanto.agendarAula(aulaCanto);
+        aulaCanto.agendarAula(aulaCanto2);
+        System.out.println();
+        gerenciadorDeAulas.listarAulas();
 	}
 }

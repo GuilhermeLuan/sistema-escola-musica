@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.gerenciamento.aulas.Aula;
+import br.com.gerenciamento.aulas.GerenciadorDeAulas;
 import br.com.gerenciamento.entities.curso.*;
 import br.com.gerenciamento.i.Agendavel;
 
@@ -11,14 +12,14 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
 	
 	// propriedade da subclasse Professor
 	private String especialidade; 
-	private List<Aula> aulasAgendadas;
+	private GerenciadorDeAulas gerenciadorDeAula;
 	
-	
+	// mudar isso dps para o singleton fazer sentido 
 	//construtoor
-	public Professor(String nome, int idade, String endereco, Curso curso, String especialidade) {
+	public Professor(String nome, int idade, String endereco, Curso curso, String especialidade, GerenciadorDeAulas gerenciadorDeAula) {
 		super(nome, idade, endereco);
 		this.especialidade = especialidade;
-		this.aulasAgendadas = new ArrayList<>();
+		this.gerenciadorDeAula = gerenciadorDeAula;
 	}
 
 	//encapsulamento 
@@ -29,31 +30,24 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
 	public void setEspecialidade(String especialidade) {
 		this.especialidade = especialidade;
 	}
-
-	public List<Aula> getAulasAgendadas() {
-		return aulasAgendadas;	
-	}
 	
 	//IMPLEMENTAÇÃO DOSS MÉTODOS DA INTERFACE
 	//Polimorfismo - sobrescrita do método agendarAula
 	@Override
-	public void agendarAula(LocalTime horaInicio, Aula aula) {
-		System.out.println("*Aula agendada com sucesso! -> " +aula);
-		
+	public void agendarAula(Aula aula) {
+		gerenciadorDeAula.agendarAula(aula);
+
 	}
 
 	@Override
 	public void cancelarAula(Aula aula) {
-		System.out.println("*Aula Cancelada -> " +aula);
-		
-	}
+		gerenciadorDeAula.cancelarAula(aula);
+
+}
 	
 	//metodo para listar as aulas agendadas para professorr
 	public void listarAulasAgendas() {
-		System.out.println("Aulas agendadas para o professor " + getNome() + ":");
-		 for (Aula aula : aulasAgendadas) {
-			System.out.println(aula);
-		}
+		gerenciadorDeAula.listarAulas();
 	}
 	
 	@Override

@@ -5,6 +5,7 @@ import java.util.List;
 import java.time.LocalTime;
 
 import br.com.gerenciamento.aulas.Aula;
+import br.com.gerenciamento.aulas.GerenciadorDeAulas;
 import br.com.gerenciamento.entities.curso.*;
 import br.com.gerenciamento.enums.Nivel;
 import br.com.gerenciamento.i.Agendavel;
@@ -15,23 +16,18 @@ public class Aluno extends Pessoa implements Agendavel {
 	private int matricula;
 	private Nivel nivel;
 	private List<Curso> listaDosCursos = new ArrayList<>();
-	private List<Aula> listaHorariosAulas = new ArrayList<>();;
+	private GerenciadorDeAulas gerenciadorDeAula;
 	
 	//Construtor
-	public Aluno(String nome, int idade, String endereco, int matricula, Nivel nivel) {
+	public Aluno(String nome, int idade, String endereco, int matricula, Nivel nivel, GerenciadorDeAulas gerenciadorDeAula) {
 		super(nome, idade, endereco);
 		this.matricula = matricula;
 		this.nivel = nivel;
+		this.gerenciadorDeAula = gerenciadorDeAula;
 	}
-	
 	
 	public List<Curso> getListaDosCursos() {
 		return listaDosCursos;
-	}
-
-
-	public List<Aula> getListaHorariosAulas() {
-		return listaHorariosAulas;
 	}
 
 	//ENCAPSULAMENTO - protegendo os atributos
@@ -53,14 +49,14 @@ public class Aluno extends Pessoa implements Agendavel {
 	//IMPLEMENTAÇÃO DOSS MÉTODOS DA INTERFACE
 	//Polimorfismo - sobrescrita do método agendarAula
 	@Override
-	public void agendarAula(LocalTime horaInicio, Aula aula) {	
-		System.out.println("*Aula agendada com sucesso! -> " +aula);
+	public void agendarAula(Aula aula) {	
+		gerenciadorDeAula.agendarAula(aula);
 	}
 
 	//Polimorfismo - sobrescrita do método cancelarAula
 	@Override
 	public void cancelarAula(Aula aula) {
-		System.out.println("*Aula Cancelada -> " +aula);
+		gerenciadorDeAula.cancelarAula(aula);
 	}
 	
 	//Método para listar os cursos inscritos
@@ -68,15 +64,6 @@ public class Aluno extends Pessoa implements Agendavel {
 		//loop for-each -- percorre a lista 
 		for (Curso curso : listaDosCursos) {
 			System.out.printf(" - Cursos inscritos: %s\n", curso.getNome());
-		}
-
-	}
-	
-	//Método para listar os horários das aulas
-	public void listarHorariosAulas() {
-		//loop for-each -- percorre a lista 
-		for (Aula aulas : listaHorariosAulas) {
-			System.out.printf(" - Horarios das aulas: %s\n", aulas);
 		}
 
 	}

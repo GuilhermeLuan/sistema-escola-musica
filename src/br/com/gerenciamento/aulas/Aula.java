@@ -12,6 +12,7 @@ public class Aula{
     private LocalTime horaInicio;
     private LocalTime horaFim;
     private Agendavel listener;
+
     
 	public Aula(TipoCurso curso, LocalDate data, LocalTime horaInicio, LocalTime horaFim) {
 		super();
@@ -59,13 +60,24 @@ public class Aula{
 		this.listener = listener;
 	}
 
-	public void agendarAula(LocalTime horaInicio, Aula aula) {
-		listener.agendarAula(horaInicio, aula);
-		
+	public void agendarAula(Aula aula) {
+		listener.agendarAula(aula);
+
 	}
 
 	public void cancelarAula(Aula aula) {
 		listener.cancelarAula(aula);
-		
+
 	}    
+	
+	@Override
+	public String toString() {
+	    return String.format(
+	        "\n Curso: %s\n	Data: %s\n	Hora de Início: %s\n	Hora de Término: %s",
+	        curso,                              // Tipo do curso
+	        data,                               // Data da aula
+	        horaInicio,                         // Hora de início da aula
+	        horaFim                            // Hora de término da aula
+	    );
+	}
 }
