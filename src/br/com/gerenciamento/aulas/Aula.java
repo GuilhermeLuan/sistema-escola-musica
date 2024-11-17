@@ -3,7 +3,7 @@ package br.com.gerenciamento.aulas;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import br.com.gerenciamento.entities.curso.TipoCurso;
+import br.com.gerenciamento.enums.TipoCurso;
 import br.com.gerenciamento.i.Agendavel;
 
 public class Aula implements Agendavel {
