@@ -4,6 +4,8 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.gerenciamento.entities.Pessoa;
+
 public class GerenciadorDeAulas {
     private List<Aula> aulasAgendadas;
     private static GerenciadorDeAulas instancia;
@@ -52,10 +54,18 @@ public class GerenciadorDeAulas {
 
     // Método para listar todas as aulas agendadas
     public void listarAulas() {
-        System.out.println("Lista de Aulas agendadas!");
+        System.out.println("Lista de todas Aulas agendadas!");
 
         for (Aula aula : aulasAgendadas) {
             System.out.println(aula);
+        }
+    }
+    
+    public void listarAulasDoProfessorOuAluno(Pessoa p) {
+        System.out.printf("Lista de todas Aulas agendadas do %s!%n", p.getNome());
+        for (Aula a : aulasAgendadas) {
+        	if(a.getAluno().getNome() == p.getNome() || a.getProfessor().getNome() == p.getNome() )
+            System.out.println(a);
         }
     }
 }
