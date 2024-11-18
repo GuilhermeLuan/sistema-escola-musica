@@ -14,7 +14,7 @@ public class GerenciadorDeAulas {
     }
     
 
-    // Método para obter a instancia unica do Singleton 
+    // padrão singleton 
     public static GerenciadorDeAulas getInstancia() {
         if (instancia == null) {
             instancia = new GerenciadorDeAulas();

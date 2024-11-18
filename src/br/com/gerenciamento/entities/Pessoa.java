@@ -6,6 +6,8 @@ public class Pessoa {
     private int idade;
     private String endereco;
 
+    
+    // construtor
 	public Pessoa(String nome, int idade, String endereco) {
 		super();
 		this.nome = nome;
@@ -13,6 +15,8 @@ public class Pessoa {
 		this.endereco = endereco;
 	}
 
+	// encapsulamento
+	
 	public String getNome() {
 		return nome;
 	}
