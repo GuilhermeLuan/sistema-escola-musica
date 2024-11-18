@@ -10,12 +10,12 @@ import br.com.gerenciamento.i.Agendavel;
 
 public class Professor extends Pessoa implements Agendavel { // hierarquia da classe Pessoa com a subclasse Professor
 	
-	// propriedade da subclasse Professor
+	// atributos da subclasse Professor
 	private String especialidade; 
 	private GerenciadorDeAulas gerenciadorDeAula;
 	
-	// mudar isso dps para o singleton fazer sentido 
-	//construtoor
+	
+	//construtor
 	public Professor(String nome, int idade, String endereco, Curso curso, String especialidade, GerenciadorDeAulas gerenciadorDeAula) {
 		super(nome, idade, endereco);
 		this.especialidade = especialidade;
@@ -32,32 +32,34 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
 	}
 	
 	//IMPLEMENTAÇÃO DOSS MÉTODOS DA INTERFACE
-	//Polimorfismo - sobrescrita do método agendarAula
+	// sobrescrita do método agendarAula
+	
 	@Override
 	public void agendarAula(Aula aula) {
 		gerenciadorDeAula.agendarAula(aula);
 
 	}
-
+	// sobrescrita do método cancelarAula
 	@Override
 	public void cancelarAula(Aula aula) {
 		gerenciadorDeAula.cancelarAula(aula);
 
 }
 	
-	//metodo para listar as aulas agendadas para professorr
+	//método que lista as aulas agendadas para o professor
 	public void listarAulasAgendas() {
 		gerenciadorDeAula.listarAulas();
 	}
 	
+	// sobrescrita do método toString() que fornece detalhes das informações do professor
 	@Override
     public String toString() {
         return String.format(
             "Nome: %s\nIdade: %d\nEndereço: %s\nCPF: %s\nRegistro do Professor: %d\nEspecialidade: %s",
-            super.getNome(),           // Obtém o nome da superclasse Pessoa
-            super.getIdade(),          // Obtém a idade da superclasse Pessoa
-            super.getEndereco(),       // Obtém o endereço da superclasse Pessoa
-            this.especialidade         // Especialidade do professor
+            super.getNome(),           
+            super.getIdade(),          
+            super.getEndereco(),       
+            this.especialidade       
         );
     }
 }

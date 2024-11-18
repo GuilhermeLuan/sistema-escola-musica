@@ -4,7 +4,7 @@ import java.time.LocalTime;
 
 import br.com.gerenciamento.aulas.Aula;
 
-//OBSERVER
+// PADRÃO OBSERVER
 public interface Agendavel {
 	    
 	    // Método para agendar uma aula

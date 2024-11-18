@@ -78,7 +78,7 @@ public class Aluno extends Pessoa implements Agendavel {
 		listaDosCursos.remove(curso);
 	}
 
-	// sobrescrita do método toString() que fornece detalhes das informações de aluno.
+	// sobrescrita do método toString() que fornece detalhes das informações de aluno
 	@Override
 	public String toString() {
 	    return String.format(
