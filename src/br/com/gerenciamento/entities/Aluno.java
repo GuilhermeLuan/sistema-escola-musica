@@ -49,13 +49,17 @@ public class Aluno extends Pessoa implements Agendavel {
 	//IMPLEMENTAÇÃO DOSS MÉTODOS DA INTERFACE
 	//sobrescrita do método agendarAula
 	@Override
-	public void agendarAula(Aula aula) {	
+	public void agendarAula(Aula aula) {
+		System.out.println("_________________________________________________________________-");
+		System.out.println("\n (O ALUNO " +nome+ " requeriu um AGENDAMENTO de aula...)");
 		gerenciadorDeAula.agendarAula(aula);
 	}
 
 	// sobrescrita do método cancelarAula
 	@Override
 	public void cancelarAula(Aula aula) {
+		System.out.println("_________________________________________________________________-");
+		System.out.println("\n (O ALUNO " +nome+ " requeriu um CANCELAMENTO de aula...)");
 		gerenciadorDeAula.cancelarAula(aula);
 	}
 	
@@ -82,7 +86,7 @@ public class Aluno extends Pessoa implements Agendavel {
 	@Override
 	public String toString() {
 	    return String.format(
-	        "Nome: %s\nIdade: %d\nEndereço: %s\nMatrícula: %d\nNível do aluno: %s",
+	        " - Nome: %s\n - Idade: %d\n - Endereço: %s\n - Matrícula: %d\n - Nível do aluno: %s",
 	        super.getNome(),       
 	        super.getIdade(),      
 	        super.getEndereco(),   

@@ -36,12 +36,16 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
 	
 	@Override
 	public void agendarAula(Aula aula) {
+		System.out.println("_________________________________________________________________-");
+		System.out.println("\n (O PROFESSOR " +nome+ " requeriu um AGENDAMENTO de aula...)");
 		gerenciadorDeAula.agendarAula(aula);
 
 	}
 	// sobrescrita do método cancelarAula
 	@Override
 	public void cancelarAula(Aula aula) {
+		System.out.println("_________________________________________________________________-");
+		System.out.println("\n (O PROFESSOR " +nome+ " requeriu um CANCELAMENTO de aula...)");
 		gerenciadorDeAula.cancelarAula(aula);
 
 }
@@ -55,7 +59,7 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
 	@Override
     public String toString() {
         return String.format(
-            "Nome: %s\nIdade: %d\nEndereço: %s\nCPF: %s\nRegistro do Professor: %d\nEspecialidade: %s",
+            " - Nome: %s\n - Idade: %d\n - Endereço: %s\n - Especialidade: %s",
             super.getNome(),           
             super.getIdade(),          
             super.getEndereco(),       

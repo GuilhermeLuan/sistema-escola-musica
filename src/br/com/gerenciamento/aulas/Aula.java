@@ -133,7 +133,7 @@ public class Aula{
 	@Override
 	public String toString() {
 	    return String.format(
-	        "\nCurso: %s\nData: %s\nHora de Início: %s\nHora de Término: %s\nAluno: %s\nProfessor: %s\n",
+	        "\n *CURSO: %s\n - Data: %s\n - Hora de Início: %s\n - Hora de Término: %s\n - Aluno: %s\n - Professor: %s\n",
 	        curso,                              // Tipo do curso
 	        data,                               // Data da aula
 	        horaInicio,                         // Hora de início da aula

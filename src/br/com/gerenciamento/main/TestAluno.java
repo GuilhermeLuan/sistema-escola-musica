@@ -14,65 +14,109 @@ import br.com.gerenciamento.enums.TipoCurso;
 
 public class TestAluno {
 	public static void main(String[] args) {
+		System.out.println("\n::::::::::::::::::::::( ESCOLA DE MÚSICA ):::::::::::::::::::::::\n");
+		//criando o gerencidador de aulas
 		GerenciadorDeAulas gerenciadorDeAulas = GerenciadorDeAulas.getInstancia();
+		
+		//chamando o factory (nossa fábrica de objetos do tipo "Curso")
 		Curso curso1 = CursoFactory.newCurso(TipoCurso.CANTO, 20);
 		Curso curso2 = CursoFactory.newCurso(TipoCurso.TEORIA_MUSICAL, 20);
+		Curso curso3 = CursoFactory.newCurso(TipoCurso.VIOLAO, 20);
+		Curso curso4 = CursoFactory.newCurso(TipoCurso.PIANO, 20);
 
-        System.out.println("================= Professor ===================");
-
+		//criando objetos do tipo Professor
+        System.out.println("\n========================+ PROFESSORES +==========================\n");
+        //professor1 - professor de CANTO
+        Professor professor1 = new Professor("Lucas Lima", 34, "Rua A", curso1, "Canto", gerenciadorDeAulas);
+        System.out.println(professor1); // Exibindo os dados do PROFESSOR (toString sobrescrito na classe Professor)
+        System.out.println("\n_________________________________________________________________-\n");
+        //professor2 - professor de TEORIA MUSICAL
+        Professor professor2 = new Professor("Duncan Idaho", 40, "Imperial Basin", curso2, "Teoria Musical", gerenciadorDeAulas);
+        System.out.println(professor2); // Exibindo os dados do PROFESSOR (toString sobrescrito na classe Professor)
+        System.out.println("\n_________________________________________________________________-\n");
+        //professor3 - professor de VIOLÃO
+        Professor professor3 = new Professor("Duncan Idaho", 40, "Imperial Basin", curso3, "Violão", gerenciadorDeAulas);
+        System.out.println(professor2); // Exibindo os dados do PROFESSOR (toString sobrescrito na classe Professor)
+        System.out.println("\n_________________________________________________________________-\n");
+        //professor4 - professor de PIANO
+        Professor professor4 = new Professor("Frank Herbert", 28, "Avenida dos Pássaros", curso4, "Piano", gerenciadorDeAulas);
+        System.out.println(professor3); // Exibindo os dados do PROFESSOR (toString sobrescrito na classe Professor)
 		
-        // Criando um objeto Aluno
-        Aluno aluno = new Aluno(
-            "João Silva",          // Nome
-            20,                    // Idade
-            "Rua das Flores, 123", // Endereço
-            1010,                  // Matrícula
-            Nivel.INTERMEDIARIO,
-            gerenciadorDeAulas// Nível
-        );
+        // Criando objetos do tipo Aluno
+        System.out.println("\n===========================+ ALUNOS +=============================\n");
+        //aluno1
+        Aluno aluno1 = new Aluno("João Silva", 20, "Rua das Flores, 123", 1010, Nivel.INICIANTE, gerenciadorDeAulas);
+        System.out.println(aluno1); // Exibindo os dados do ALUNO (toString sobrescrito na classe Aluno)
+        System.out.println("\n_________________________________________________________________-\n");
+        //aluno2
+        Aluno aluno2 = new Aluno("Marcos Alia", 12, "Rua B",2938, Nivel.INTERMEDIARIO, gerenciadorDeAulas);
+        System.out.println(aluno2);// Exibindo os dados do ALUNO (toString sobrescrito na classe Aluno)
+        System.out.println("\n_________________________________________________________________-\n");
+        //aluno3
+        Aluno aluno3 = new Aluno("Paul Atreides", 15, "Bronken Land",3001, Nivel.AVANCADO, gerenciadorDeAulas);
+        System.out.println(aluno3);// Exibindo os dados do ALUNO (toString sobrescrito na classe Aluno)
+        
+        //criando as aulas
+        //aqui será testado o conflito de horários, onde um aluno tentará marcar aulas que os os horários coincidem
+        Aula aulaCanto = new Aula(TipoCurso.CANTO, LocalDate.of(2024,10,12), LocalTime.of(16,0), LocalTime.of(18,0), aluno1, professor1);
+        Aula aulaTeoriaMusical = new Aula(TipoCurso.TEORIA_MUSICAL, LocalDate.of(2024,10,12), LocalTime.of(18,0), LocalTime.of(20,0), aluno2, professor2);
+        Aula aulaViolao = new Aula(TipoCurso.VIOLAO, LocalDate.of(2024,10,12), LocalTime.of(18,0), LocalTime.of(20,0), aluno2, professor3);
+        Aula aulaPiano = new Aula(TipoCurso.PIANO, LocalDate.of(2024,10,12), LocalTime.of(13,0), LocalTime.of(15,0), aluno3, professor4);
 
-        // Exibindo os dados do aluno (toString sobrescrito na classe Aluno)
-        System.out.println(aluno);
-
-        // Simulando métodos da classe
-        aluno.listarCursosInscritos(); // Exemplo de lista vazia inicialmente
-   
-        aluno.adicionarCurso(curso1);
-        
-        aluno.listarCursosInscritos();
-        
-        Aluno aluno1 = new Aluno("Marcos", 12, "Rua B",298, Nivel.INICIANTE, gerenciadorDeAulas);
-        Professor professor = new Professor("Lucas", 34, "Rua A", curso1, "Canto", gerenciadorDeAulas);
-        
-        Aula aulaCanto = new Aula(TipoCurso.CANTO, LocalDate.of(2024,10,12), LocalTime.of(16,0), LocalTime.of(18,0), aluno1, professor);
-        Aula aulaPiano = new Aula(TipoCurso.PIANO, LocalDate.of(2024,10,12), LocalTime.of(18,0), LocalTime.of(19,0), aluno1, professor);
-
-        aulaCanto.adicionarListener(professor);
-                
-        aulaCanto.agendarAula(aulaCanto);
-        aulaCanto.agendarAula(aulaPiano);
-        System.out.println();
-        aulaCanto.agendarAula(aulaCanto);
-        System.out.println();
-        gerenciadorDeAulas.listarAulasDoProfessorOuAluno(professor);
-        
-        System.out.println("================= Aluno ===================");
-        
-        Aluno aluno2 = new Aluno("Paul Atreides", 15, "Bronken Land",300, Nivel.INTERMEDIARIO, gerenciadorDeAulas);
-        Professor professor2 = new Professor("Duncan Idaho", 34, "Imperial Basin", curso1, "Piano", gerenciadorDeAulas);
-        Aula aulaTeoriaMusical = new Aula(TipoCurso.TEORIA_MUSICAL, LocalDate.of(2024,10,20), LocalTime.of(18,0), LocalTime.of(19,0), aluno2, professor2);
-
-        System.out.println();
-        System.out.println(aluno2);
-        System.out.println();
-
-        
-        aluno2.adicionarCurso(curso2);
-        aluno2.listarCursosInscritos();
-        
+        //utilizando o padrão OBSERVER para a notificação do agendamento e cancelamento das aulas
+        //adicionando na aula de CANTO (o professor responsável e os possíveis alunos que gostariam de agendar ou cancelar a aula)
+        aulaCanto.adicionarListener(professor1);
+        aulaCanto.adicionarListener(aluno1);
+        aulaCanto.adicionarListener(aluno2);
+        aulaCanto.adicionarListener(aluno3);
+        //adicionando na aula de TEORIA MUSICAL (o professor responsável e os possíveis alunos que gostariam de agendar ou cancelar a aula)
+        aulaTeoriaMusical.adicionarListener(professor2);
+        aulaTeoriaMusical.adicionarListener(aluno1);
         aulaTeoriaMusical.adicionarListener(aluno2);
-        aulaTeoriaMusical.agendarAula(aulaTeoriaMusical);
-        System.out.println();
+        aulaTeoriaMusical.adicionarListener(aluno3);
+        //adicionando na aula de VIOLÃO (o professor responsável e os possíveis alunos que gostariam de agendar ou cancelar a aula)
+        aulaViolao.adicionarListener(professor3);
+        aulaViolao.adicionarListener(aluno1);
+        aulaViolao.adicionarListener(aluno2);
+        aulaViolao.adicionarListener(aluno3);
+        //adicionando na aula de PIANO (o professor responsável e os possíveis alunos que gostariam de agendar ou cancelar a aula)
+        aulaPiano.adicionarListener(professor4);
+        aulaPiano.adicionarListener(aluno1);
+        aulaPiano.adicionarListener(aluno2);
+        aulaPiano.adicionarListener(aluno3);
+                
+        System.out.println("\n::::::::::::::::::::::::: LISTA DAS AULAS ::::::::::::::::::::::::::");
+        
+        professor1.agendarAula(aulaCanto);
+        aluno2.agendarAula(aulaTeoriaMusical);
+        aluno2.agendarAula(aulaViolao);
+        
+       // aulaCanto.agendarAula(aulaCanto);
+        //aulaCanto.agendarAula(aulaPiano);
+        //System.out.println();
+        //aulaCanto.agendarAula(aulaCanto);
+        //System.out.println();
+        gerenciadorDeAulas.listarAulasDoProfessorOuAluno(professor1);
+        
+        
+     // Simulando métodos da classe
+        aluno1.listarCursosInscritos(); // Exemplo de lista vazia inicialmente
+        aluno1.adicionarCurso(curso1);
+        aluno1.listarCursosInscritos();
+        
+  
+        ;
+        // aulaTeoriaMusical = new Aula(TipoCurso.TEORIA_MUSICAL, LocalDate.of(2024,10,20), LocalTime.of(18,0), LocalTime.of(19,0), aluno2, professor2);
+
+        //System.out.println();
+        //System.out.println();
+
+        
+        //aluno2.adicionarCurso(curso2);
+        //aluno2.listarCursosInscritos();
+       
+        //aulaTeoriaMusical.agendarAula(aulaTeoriaMusical);
+        //System.out.println();
         gerenciadorDeAulas.listarAulasDoProfessorOuAluno(aluno2);
 
 

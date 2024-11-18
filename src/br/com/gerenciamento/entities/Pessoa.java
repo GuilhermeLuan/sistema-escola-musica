@@ -2,7 +2,7 @@ package br.com.gerenciamento.entities;
 
 public class Pessoa {
 	
-	private String nome;
+	protected String nome;
     private int idade;
     private String endereco;
 

@@ -33,28 +33,32 @@ public class GerenciadorDeAulas {
             );
 
         if (conflito) {
-            System.out.println("Erro: Conflito de horários. Aula não pode ser agendada.");
+            System.out.println(" !!!ERRO: Conflito de horários - A aula não pode ser agendada!!!");
+            System.out.println(" <AVISO: A aula não pode ser agendada, pois a aula em questão");
+            System.out.println(" coincide com o horário de outra aula já agendada anteriormente>\n");
             return false;
         } else {
             aulasAgendadas.add(novaAula);
-            System.out.println("Aula agendada com sucesso: " + novaAula);
+            System.out.println(" (A aula foi AGENDADA com sucesso!)");
+            System.out.println("\n *Informações da aula: " + novaAula);
             return true;
         }
     }
     // Método para cancelar uma aula
     public boolean cancelarAula(Aula aula) {
         if (aulasAgendadas.remove(aula)) {
-            System.out.println("Aula cancelada com sucesso: " + aula);
+        	System.out.println(" (A aula foi devidamente CANCELADA!)");
+        	System.out.println(" *Informações da aula: " + aula);
             return true;
         } else {
-            System.out.println("Erro: Aula não encontrada para cancelamento.");
+            System.out.println(" !!!ERRO: A aula não encontrada para efetuar o cancelamento!!!");
             return false;
         }
     }
 
     // Método para listar todas as aulas agendadas
     public void listarAulas() {
-        System.out.println("Lista de todas Aulas agendadas!");
+        System.out.println("\n +++ Lista de TODAS as aulas agendadas:");
 
         for (Aula aula : aulasAgendadas) {
             System.out.println(aula);
@@ -62,7 +66,7 @@ public class GerenciadorDeAulas {
     }
     
     public void listarAulasDoProfessorOuAluno(Pessoa p) {
-        System.out.printf("Lista de todas Aulas agendadas do %s!%n", p.getNome());
+        System.out.printf("\n +++ Lista de todas as aulas agendadas do %s:%n", p.getNome());
         for (Aula a : aulasAgendadas) {
         	if(a.getAluno().getNome() == p.getNome() || a.getProfessor().getNome() == p.getNome() )
             System.out.println(a);
