@@ -2,6 +2,8 @@ package br.com.gerenciamento.entities.curso;
 
 import br.com.gerenciamento.enums.TipoCurso;
 
+// classe para instanciar cursos
+
 public class CursoFactory {
 	public static Curso newCurso(TipoCurso tipoCurso, int duracaoHoras) {
 		switch (tipoCurso) {
