@@ -87,11 +87,23 @@ public class TestAluno {
                 
         System.out.println("\n::::::::::::::::::::::::: LISTA DAS AULAS ::::::::::::::::::::::::::");
         
+        //agendando as aulas
         professor1.agendarAula(aulaCanto);
+        aluno1.agendarAula(aulaCanto);
+        
+        professor2.agendarAula(aulaTeoriaMusical);
+        //testando o conflito de aulas, onde o aluno tenta marcar aulas que estão no mesmo horário
         aluno2.agendarAula(aulaTeoriaMusical);
         aluno2.agendarAula(aulaViolao);
         
-       // aulaCanto.agendarAula(aulaCanto);
+        //testando o cancelamento de aulas
+        aluno3.agendarAula(aulaViolao);
+        professor3.agendarAula(aulaViolao);
+        professor3.cancelarAula(aulaViolao);
+        
+        
+        
+        //aulaCanto.agendarAula(aulaCanto);
         //aulaCanto.agendarAula(aulaPiano);
         //System.out.println();
         //aulaCanto.agendarAula(aulaCanto);
