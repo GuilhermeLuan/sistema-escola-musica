@@ -35,7 +35,7 @@ public class TestAluno {
         System.out.println(professor2); // Exibindo os dados do PROFESSOR (toString sobrescrito na classe Professor)
         System.out.println("\n_________________________________________________________________-\n");
         //professor3 - professor de VIOLÃO
-        Professor professor3 = new Professor("Duncan Idaho", 40, "Imperial Basin", curso3, "Violão", gerenciadorDeAulas);
+        Professor professor3 = new Professor("Stilgar Ben", 52, "Sietch Tabr", curso3, "Violão", gerenciadorDeAulas);
         System.out.println(professor2); // Exibindo os dados do PROFESSOR (toString sobrescrito na classe Professor)
         System.out.println("\n_________________________________________________________________-\n");
         //professor4 - professor de PIANO
@@ -97,12 +97,23 @@ public class TestAluno {
         aluno2.agendarAula(aulaViolao);
         
         //testando o cancelamento de aulas
-        aluno3.agendarAula(aulaViolao);
-        professor3.agendarAula(aulaViolao);
-        professor3.cancelarAula(aulaViolao);
+        System.out.println("--- DEBUG ---");
+        gerenciadorDeAulas.listarAulas();
+        gerenciadorDeAulas.listarAulasDoProfessorOuAluno(aluno3);
+        gerenciadorDeAulas.listarAulasDoProfessorOuAluno(professor3);
+
         
         
         
+        aluno3.agendarAula(aulaViolao); // Era pra da certo!
+        professor3.agendarAula(aulaViolao); //Era pra da certo!
+        professor3.cancelarAula(aulaViolao); //Era pra da certo
+        
+        gerenciadorDeAulas.listarAulas();
+
+        
+        System.out.println("--- FIM - DEBUG ---");
+
         //aulaCanto.agendarAula(aulaCanto);
         //aulaCanto.agendarAula(aulaPiano);
         //System.out.println();

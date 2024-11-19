@@ -28,22 +28,21 @@ public class GerenciadorDeAulas {
     public boolean agendarAula(Aula novaAula) {
         boolean conflito = aulasAgendadas.stream()
             .anyMatch(a -> 
-                a.getData().equals(novaAula.getData()) && // Verifica se a data é a mesma
-                (novaAula.getHoraInicio().isBefore(a.getHoraFim()) && novaAula.getHoraFim().isAfter(a.getHoraInicio()))
+                a.getData().equals(novaAula.getData()) && // Mesma data
+                (novaAula.getHoraInicio().isBefore(a.getHoraFim()) && novaAula.getHoraFim().isAfter(a.getHoraInicio())) && // Horário sobreposto
+                a.getProfessor().equals(novaAula.getProfessor()) // Mesmo professor
             );
 
         if (conflito) {
-            System.out.println(" !!!ERRO: Conflito de horários - A aula não pode ser agendada!!!");
-            System.out.println(" <AVISO: A aula não pode ser agendada, pois a aula em questão");
-            System.out.println(" coincide com o horário de outra aula já agendada anteriormente>\n");
+            System.out.println(" !!!ERRO: Conflito de horários com o mesmo professor - A aula não pode ser agendada!!!");
             return false;
         } else {
             aulasAgendadas.add(novaAula);
             System.out.println(" (A aula foi AGENDADA com sucesso!)");
-            System.out.println("\n *Informações da aula: " + novaAula);
             return true;
         }
     }
+
     // Método para cancelar uma aula
     public boolean cancelarAula(Aula aula) {
         if (aulasAgendadas.remove(aula)) {
