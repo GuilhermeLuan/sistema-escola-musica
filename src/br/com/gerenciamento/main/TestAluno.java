@@ -19,10 +19,10 @@ public class TestAluno {
 		GerenciadorDeAulas gerenciadorDeAulas = GerenciadorDeAulas.getInstancia();
 		
 		//chamando o factory (nossa fábrica de objetos do tipo "Curso")
-		Curso curso1 = CursoFactory.newCurso(TipoCurso.CANTO, 20);
-		Curso curso2 = CursoFactory.newCurso(TipoCurso.TEORIA_MUSICAL, 20);
-		Curso curso3 = CursoFactory.newCurso(TipoCurso.VIOLAO, 20);
-		Curso curso4 = CursoFactory.newCurso(TipoCurso.PIANO, 20);
+		Curso curso1 = CursoFactory.novoCurso(TipoCurso.CANTO, 20);
+		Curso curso2 = CursoFactory.novoCurso(TipoCurso.TEORIA_MUSICAL, 20);
+		Curso curso3 = CursoFactory.novoCurso(TipoCurso.VIOLAO, 20);
+		Curso curso4 = CursoFactory.novoCurso(TipoCurso.PIANO, 20);
 
 		//criando objetos do tipo Professor
         System.out.println("\n========================+ PROFESSORES +==========================\n");
@@ -85,50 +85,52 @@ public class TestAluno {
         aulaPiano.adicionarListener(aluno2);
         aulaPiano.adicionarListener(aluno3);
                 
-        System.out.println("\n::::::::::::::::::::::::: LISTA DAS AULAS ::::::::::::::::::::::::::");
+        System.out.println("\n:::::::::::::::::: AGENDAMENTOS E CANCELAMENTOS :::::::::::::::::::::::");
         
         //agendando as aulas
         professor1.agendarAula(aulaCanto);
-        aluno1.agendarAula(aulaCanto);
-        
-        professor2.agendarAula(aulaTeoriaMusical);
+       
         //testando o conflito de aulas, onde o aluno tenta marcar aulas que estão no mesmo horário
         aluno2.agendarAula(aulaTeoriaMusical);
-        aluno2.agendarAula(aulaViolao);
+        aluno2.agendarAula(aulaTeoriaMusical);
+        
+        //professor4.agendarAula(aulaPiano);
+        //aluno3.agendarAula(aulaPiano
         
         //testando o cancelamento de aulas
-        System.out.println("--- DEBUG ---");
-        gerenciadorDeAulas.listarAulas();
-        gerenciadorDeAulas.listarAulasDoProfessorOuAluno(aluno3);
-        gerenciadorDeAulas.listarAulasDoProfessorOuAluno(professor3);
+        //System.out.println("--- DEBUG ---");
+        //gerenciadorDeAulas.listarAulas();
+        //gerenciadorDeAulas.listarAulasDoProfessorOuAluno(aluno3);
+        //gerenciadorDeAulas.listarAulasDoProfessorOuAluno(professor3);
 
         
         
         
-        aluno3.agendarAula(aulaViolao); // Era pra da certo!
-        professor3.agendarAula(aulaViolao); //Era pra da certo!
-        professor3.cancelarAula(aulaViolao); //Era pra da certo
+        //aluno3.agendarAula(aulaViolao); // Era pra da certo!
+        //professor3.agendarAula(aulaViolao); //Era pra da certo!
+        //professor3.cancelarAula(aulaViolao); //Era pra da certo
         
-        gerenciadorDeAulas.listarAulas();
+        //gerenciadorDeAulas.listarAulas();
 
         
-        System.out.println("--- FIM - DEBUG ---");
+        //System.out.println("--- FIM - DEBUG ---");
 
+        System.out.println("\n::::::::::::::::::::::: LISTA DAS AULAS ::::::::::::::::::::::::::::");
         //aulaCanto.agendarAula(aulaCanto);
         //aulaCanto.agendarAula(aulaPiano);
         //System.out.println();
         //aulaCanto.agendarAula(aulaCanto);
         //System.out.println();
-        gerenciadorDeAulas.listarAulasDoProfessorOuAluno(professor1);
+        //gerenciadorDeAulas.listarAulasDoProfessorOuAluno(professor1);
         
         
      // Simulando métodos da classe
-        aluno1.listarCursosInscritos(); // Exemplo de lista vazia inicialmente
-        aluno1.adicionarCurso(curso1);
-        aluno1.listarCursosInscritos();
+        //aluno1.listarCursosInscritos(); // Exemplo de lista vazia inicialmente
+        //aluno1.adicionarCurso(curso1);
+        //aluno1.listarCursosInscritos();
         
   
-        ;
+        
         // aulaTeoriaMusical = new Aula(TipoCurso.TEORIA_MUSICAL, LocalDate.of(2024,10,20), LocalTime.of(18,0), LocalTime.of(19,0), aluno2, professor2);
 
         //System.out.println();
@@ -140,7 +142,7 @@ public class TestAluno {
        
         //aulaTeoriaMusical.agendarAula(aulaTeoriaMusical);
         //System.out.println();
-        gerenciadorDeAulas.listarAulasDoProfessorOuAluno(aluno2);
+        //gerenciadorDeAulas.listarAulasDoProfessorOuAluno(aluno2);
 
 
         

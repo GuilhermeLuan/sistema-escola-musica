@@ -34,7 +34,9 @@ public class GerenciadorDeAulas {
             );
 
         if (conflito) {
-            System.out.println(" !!!ERRO: Conflito de horários com o mesmo professor - A aula não pode ser agendada!!!");
+            System.out.println(" !!!ERRO: Conflito de horários - A aula não pode ser agendada!!!");
+            System.out.println(" <AVISO: A aula que você está tentando agendar coincide com o");
+            System.out.println(" horário de outra aula já agendada anteriormente.>");
             return false;
         } else {
             aulasAgendadas.add(novaAula);
@@ -50,7 +52,7 @@ public class GerenciadorDeAulas {
         	System.out.println(" *Informações da aula: " + aula);
             return true;
         } else {
-            System.out.println(" !!!ERRO: A aula não encontrada para efetuar o cancelamento!!!");
+            System.out.println(" !!!ERRO: A aula não foi encontrada para efetuar o cancelamento!!!");
             return false;
         }
     }
