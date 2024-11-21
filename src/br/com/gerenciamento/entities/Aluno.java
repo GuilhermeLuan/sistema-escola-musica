@@ -15,7 +15,6 @@ public class Aluno extends Pessoa implements Agendavel {
 	
 	private int matricula;
 	private Nivel nivel;
-	private List<Curso> listaDosCursos = new ArrayList<>();
 	private GerenciadorDeAulas gerenciadorDeAula;
 	
 
@@ -24,10 +23,6 @@ public class Aluno extends Pessoa implements Agendavel {
 		this.matricula = matricula;
 		this.nivel = nivel;
 		this.gerenciadorDeAula = gerenciadorDeAula;
-	}
-	
-	public List<Curso> getListaDosCursos() {
-		return listaDosCursos;
 	}
 
 	//ENCAPSULAMENTO
@@ -61,25 +56,6 @@ public class Aluno extends Pessoa implements Agendavel {
 		System.out.println("_________________________________________________________________-");
 		System.out.println("\n (O ALUNO " +nome+ " requeriu um CANCELAMENTO de aula...)");
 		gerenciadorDeAula.cancelarAula(aula);
-	}
-	
-	//Método para listar os cursos inscritos
-	public void listarCursosInscritos() {
-		
-		for (Curso curso : listaDosCursos) {
-			System.out.printf(" - Cursos inscritos: %s\n", curso.getNome());
-		}
-
-	}
-
-
-	public void adicionarCurso(Curso curso) {
-		listaDosCursos.add(curso);
-	}
-	
-	
-	public void removerCurso(Curso curso) {
-		listaDosCursos.remove(curso);
 	}
 
 	// sobrescrita do método toString() que fornece detalhes das informações de aluno
