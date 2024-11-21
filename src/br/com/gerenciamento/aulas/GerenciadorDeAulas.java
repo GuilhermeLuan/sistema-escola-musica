@@ -1,10 +1,9 @@
 package br.com.gerenciamento.aulas;
 
-import java.time.LocalTime;
+import br.com.gerenciamento.entities.Pessoa;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import br.com.gerenciamento.entities.Pessoa;
 
 public class GerenciadorDeAulas {
     private List<Aula> aulasAgendadas;
@@ -14,7 +13,7 @@ public class GerenciadorDeAulas {
     public GerenciadorDeAulas() {
         this.aulasAgendadas = new ArrayList<>();
     }
-    
+
 
     // padrão singleton 
     public static GerenciadorDeAulas getInstancia() {
@@ -49,10 +48,10 @@ public class GerenciadorDeAulas {
     }
 
     // Método para cancelar uma aula
-    public boolean cancelarAula(Aula aula, Pessoa pessoa) {
+    public boolean cancelarAula(Aula aula) {
         if (aulasAgendadas.remove(aula)) {
-        	System.out.println(" (A aula foi devidamente CANCELADA!)");
-        	System.out.println(" *Informações da aula: " + aula);
+            System.out.println(" (A aula foi devidamente CANCELADA!)");
+            System.out.println(" *Informações da aula: " + aula);
             return true;
         } else {
             System.out.println(" !!!ERRO: A aula não foi encontrada para efetuar o cancelamento!!!");
@@ -68,12 +67,12 @@ public class GerenciadorDeAulas {
             System.out.println(aula);
         }
     }
-    
+
     public void listarAulasDoProfessorOuAluno(Pessoa p) {
         System.out.printf("\n +++ Lista de todas as aulas agendadas do %s:%n", p.getNome());
         for (Aula a : aulasAgendadas) {
-        	if(a.getAluno().getNome() == p.getNome() || a.getProfessor().getNome() == p.getNome() )
-            System.out.println(a);
+            if (a.getAluno().getNome() == p.getNome() || a.getProfessor().getNome() == p.getNome())
+                System.out.println(a);
         }
     }
 }

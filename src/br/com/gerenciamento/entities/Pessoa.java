@@ -1,50 +1,50 @@
 package br.com.gerenciamento.entities;
 
 public class Pessoa {
-	
-	protected String nome;
+
+    protected String nome;
     private int idade;
     private String endereco;
 
-    
+
     // construtor
-	public Pessoa(String nome, int idade, String endereco) {
-		super();
-		this.nome = nome;
-		this.idade = idade;
-		this.endereco = endereco;
-	}
+    public Pessoa(String nome, int idade, String endereco) {
+        super();
+        this.nome = nome;
+        this.idade = idade;
+        this.endereco = endereco;
+    }
 
-	// encapsulamento
-	
-	public String getNome() {
-		return nome;
-	}
+    // encapsulamento
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public int getIdade() {
-		return idade;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setIdade(int idade) {
-		this.idade = idade;
-	}
+    public int getIdade() {
+        return idade;
+    }
 
-	public String getEndereco() {
-		return endereco;
-	}
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
+    public String getEndereco() {
+        return endereco;
+    }
 
-	// metodo da classe base pessoa
-	@Override
-	public String toString() {
-		return nome + ", " + idade + ", " + endereco;
-	}
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    // metodo da classe base pessoa
+    @Override
+    public String toString() {
+        return nome + ", " + idade + ", " + endereco;
+    }
 
 }
