@@ -27,11 +27,14 @@ public class GerenciadorDeAulas {
     // Método para agendar uma aula
     public boolean agendarAula(Aula novaAula) {
         boolean conflito = aulasAgendadas.stream()
-            .anyMatch(a -> 
-                a.getData().equals(novaAula.getData()) && // Mesma data
-                (novaAula.getHoraInicio().isBefore(a.getHoraFim()) && novaAula.getHoraFim().isAfter(a.getHoraInicio())) && // Horário sobreposto
-                a.getProfessor().equals(novaAula.getProfessor()) // Mesmo professor
-            );
+                .anyMatch(a ->
+                        a.getData().equals(novaAula.getData()) &&
+                        novaAula.getHoraInicio().isBefore(a.getHoraFim()) &&
+                        novaAula.getHoraFim().isAfter(a.getHoraInicio()) &&
+                        (a.getAluno().equals(novaAula.getAluno()) || // Verifica conflito de horário do aluno
+                         a.getProfessor().equals(novaAula.getProfessor())) // Verifica conflito de horário do professor
+                );
+
 
         if (conflito) {
             System.out.println(" !!!ERRO: Conflito de horários - A aula não pode ser agendada!!!");
@@ -46,7 +49,7 @@ public class GerenciadorDeAulas {
     }
 
     // Método para cancelar uma aula
-    public boolean cancelarAula(Aula aula) {
+    public boolean cancelarAula(Aula aula, Pessoa pessoa) {
         if (aulasAgendadas.remove(aula)) {
         	System.out.println(" (A aula foi devidamente CANCELADA!)");
         	System.out.println(" *Informações da aula: " + aula);
