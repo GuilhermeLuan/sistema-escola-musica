@@ -1,6 +1,7 @@
 package br.com.gerenciamento.i;
 
 import br.com.gerenciamento.aulas.Aula;
+import br.com.gerenciamento.entities.Pessoa;
 
 // PADRÃO OBSERVER
 public interface Agendavel {
@@ -9,7 +10,7 @@ public interface Agendavel {
     void agendarAula(Aula aula);
 
     // Método para cancelar uma aula
-    void cancelarAula(Aula aula);
+    void cancelarAula(Aula aula, Pessoa pessoaRequisitante);
 
 }
 

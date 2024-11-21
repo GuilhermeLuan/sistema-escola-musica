@@ -48,15 +48,21 @@ public class GerenciadorDeAulas {
     }
 
     // Método para cancelar uma aula
-    public boolean cancelarAula(Aula aula) {
-        if (aulasAgendadas.remove(aula)) {
-            System.out.println(" (A aula foi devidamente CANCELADA!)");
-            System.out.println(" *Informações da aula: " + aula);
-            return true;
-        } else {
+    public boolean cancelarAula(Aula aula, Pessoa pessoaRequisitante) {
+        if (!aulasAgendadas.contains(aula)) {
             System.out.println(" !!!ERRO: A aula não foi encontrada para efetuar o cancelamento!!!");
             return false;
         }
+
+        if (aula.getAluno().equals(pessoaRequisitante) || aula.getProfessor().equals(pessoaRequisitante)) {
+            aulasAgendadas.remove(aula);
+            System.out.println(" (A aula foi devidamente CANCELADA!)");
+            System.out.println(" *Informações da aula: " + aula);
+            return true;
+        }
+
+        System.out.println("Erro: Apenas o Professor ou o Aluno da aula podem cancelá-la.");
+        return false;
     }
 
     // Método para listar todas as aulas agendadas

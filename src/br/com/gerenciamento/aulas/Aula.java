@@ -1,6 +1,7 @@
 package br.com.gerenciamento.aulas;
 
 import br.com.gerenciamento.entities.Aluno;
+import br.com.gerenciamento.entities.Pessoa;
 import br.com.gerenciamento.entities.Professor;
 import br.com.gerenciamento.enums.TipoCurso;
 import br.com.gerenciamento.i.Agendavel;
@@ -110,8 +111,8 @@ public class Aula {
 
     }
 
-    public void cancelarAula(Aula aula) {
-        listener.cancelarAula(aula);
+    public void cancelarAula(Aula aula, Pessoa pessoaRequisitante) {
+        listener.cancelarAula(aula, pessoaRequisitante);
 
     }
 

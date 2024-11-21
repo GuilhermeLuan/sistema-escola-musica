@@ -48,10 +48,10 @@ public class Aluno extends Pessoa implements Agendavel {
 
     // sobrescrita do método cancelarAula
     @Override
-    public void cancelarAula(Aula aula) {
+    public void cancelarAula(Aula aula, Pessoa pessoaRequisitante) {
         System.out.println("_________________________________________________________________-");
         System.out.println("\n (O ALUNO " + nome + " requeriu um CANCELAMENTO de aula...)");
-        gerenciadorDeAula.cancelarAula(aula);
+        gerenciadorDeAula.cancelarAula(aula, pessoaRequisitante);
     }
 
     // sobrescrita do método toString() que fornece detalhes das informações de aluno
@@ -67,6 +67,4 @@ public class Aluno extends Pessoa implements Agendavel {
         );
 
     }
-
-
 }
