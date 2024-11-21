@@ -92,14 +92,17 @@ public class Main {
         //agendando as aulas
         professorLucasLima.agendarAula(aulaCanto);
         alunoJoaoSilva.agendarAula(aulaCanto);
+        alunoJoaoSilva.cancelarAula(aulaCanto, alunoJoaoSilva);
 
         //testando o conflito de aulas, onde o aluno tenta marcar aulas que estão no mesmo horário
         alunoMarcosAlia.agendarAula(aulaTeoriaMusical);
         alunoMarcosAlia.agendarAula(aulaTeoriaMusical);
         professorDuncanIdaho.agendarAula(aulaTeoriaMusical);
 
+        alunoJoaoSilva.cancelarAula(aulaTeoriaMusical, alunoJoaoSilva);
+
         professorFrank.agendarAula(aulaPiano);
-        professorFrank.cancelarAula(aulaPiano);
+        professorFrank.cancelarAula(aulaPiano, professorFrank);
         //alunoPaulAtreides.agendarAula(aulaPiano
 
         //testando o cancelamento de aulas

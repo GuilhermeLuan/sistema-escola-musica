@@ -5,6 +5,8 @@ import br.com.gerenciamento.aulas.GerenciadorDeAulas;
 import br.com.gerenciamento.entities.curso.Curso;
 import br.com.gerenciamento.i.Agendavel;
 
+import java.util.Objects;
+
 public class Professor extends Pessoa implements Agendavel { // hierarquia da classe Pessoa com a subclasse Professor
 
     // atributos da subclasse Professor
@@ -41,10 +43,10 @@ public class Professor extends Pessoa implements Agendavel { // hierarquia da cl
 
     // sobrescrita do método cancelarAula
     @Override
-    public void cancelarAula(Aula aula) {
+    public void cancelarAula(Aula aula, Pessoa pessoaRequisitante) {
         System.out.println("_________________________________________________________________-");
         System.out.println("\n (O PROFESSOR " + nome + " requeriu um CANCELAMENTO de aula...)");
-        gerenciadorDeAula.cancelarAula(aula);
+        gerenciadorDeAula.cancelarAula(aula, pessoaRequisitante);
 
     }
 
