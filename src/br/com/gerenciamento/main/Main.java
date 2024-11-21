@@ -12,7 +12,7 @@ import br.com.gerenciamento.enums.TipoCurso;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class TestAluno {
+public class Main {
     public static void main(String[] args) {
         System.out.println("\n::::::::::::::::::::::( ESCOLA DE MÚSICA ):::::::::::::::::::::::\n");
         //criando o gerencidador de aulas
@@ -97,7 +97,6 @@ public class TestAluno {
         alunoMarcosAlia.agendarAula(aulaTeoriaMusical);
         alunoMarcosAlia.agendarAula(aulaTeoriaMusical);
         professorDuncanIdaho.agendarAula(aulaTeoriaMusical);
-        alunoJoaoSilva.cancelarAula(aulaTeoriaMusical); // Ele não pode cancelar uma aula q não é dele
 
         professorFrank.agendarAula(aulaPiano);
         professorFrank.cancelarAula(aulaPiano);
