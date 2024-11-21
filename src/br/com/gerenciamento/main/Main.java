@@ -86,26 +86,36 @@ public class Main {
         aulaPiano.adicionarListener(alunoJoaoSilva);
         aulaPiano.adicionarListener(alunoMarcosAlia);
         aulaPiano.adicionarListener(alunoPaulAtreides);
-
-        System.out.println("\n\n:::::::::::::::: AGENDAMENTOS E CANCELAMENTOS :::::::::::::::::::");
-
+        
         //agendando as aulas
+        System.out.println("\n\n::::::::::::::::: SOLICITAÇÕES DE AGENDAMENTO ::::::::::::::::::::");
+        //agendando a aula de canto
         professorLucasLima.agendarAula(aulaCanto);
+        //testando se o aluno consegue agendar uma aula que já foi agendada pelo professor
+        //como a aula já foi agendada pelo professor, não há necessidade de o aluno agendá-la novamente
         alunoJoaoSilva.agendarAula(aulaCanto);
-        alunoJoaoSilva.cancelarAula(aulaCanto, alunoJoaoSilva);
-
-        //testando o conflito de aulas, onde o aluno tenta marcar aulas que estão no mesmo horário
+        
+        //testando o conflito de aulas, onde o aluno tenta agendar a mesma aula duas vezes
+        //a primeira solicitação é aceita e a segunda solicitação entra em conflito
         alunoMarcosAlia.agendarAula(aulaTeoriaMusical);
         alunoMarcosAlia.agendarAula(aulaTeoriaMusical);
+        //testando se o professor consegue agendar uma aula que já foi agendada pelo aluno
+        //mesma questão das linhas de código 95 e 96, o aluno já agendou a aula
         professorDuncanIdaho.agendarAula(aulaTeoriaMusical);
 
-        //testando o cancelamento de aula
-        alunoJoaoSilva.cancelarAula(aulaTeoriaMusical, alunoJoaoSilva);
-
-        //testando o agendamento e cancelamento de aula
+        //testando o agendamento 
         professorFrank.agendarAula(aulaPiano);
-        professorFrank.cancelarAula(aulaPiano, professorFrank);
         
+        //efetuando os cancelamentos
+        System.out.println("\n\n::::::::::::::::: SOLICITAÇÕES DE CANCELAMENTO ::::::::::::::::::::");
+        //testando o cancelamento de aula - quando o aluno cancela a aula agendada pelo professor
+        //como o aluno pertence a aula, ele pode cancela-la
+        alunoJoaoSilva.cancelarAula(aulaCanto, alunoJoaoSilva);
+        //testando o cancelamento de aula - quando não é um aluno ou professor da respectiva aula
+        //apenas o aluno ou o professor da aula podem cancela-la
+        alunoJoaoSilva.cancelarAula(aulaTeoriaMusical, alunoJoaoSilva);
+        //testando o cancelamento de aula agendada pelo próprio professor
+        professorFrank.cancelarAula(aulaPiano, professorFrank);
 
         System.out.println("\n\n::::::::::::::::::::::: LISTA DAS AULAS ::::::::::::::::::::::::::::");
         gerenciadorDeAulas.listarAulas();
