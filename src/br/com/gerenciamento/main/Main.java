@@ -36,16 +36,16 @@ public class Main {
         System.out.println("\n_________________________________________________________________-\n");
         //professor3 - professor de VIOLÃO
         Professor professorStilgar = new Professor("Stilgar Ben", 52, "Sietch Tabr", curso3, "Violão", gerenciadorDeAulas);
-        System.out.println(professorDuncanIdaho); // Exibindo os dados do PROFESSOR (toString sobrescrito na classe Professor)
+        System.out.println(professorStilgar); // Exibindo os dados do PROFESSOR (toString sobrescrito na classe Professor)
         System.out.println("\n_________________________________________________________________-\n");
         //professorFrank - professor de PIANO
         Professor professorFrank = new Professor("Frank Herbert", 28, "Avenida dos Pássaros", curso4, "Piano", gerenciadorDeAulas);
-        System.out.println(professorStilgar); // Exibindo os dados do PROFESSOR (toString sobrescrito na classe Professor)
+        System.out.println(professorFrank); // Exibindo os dados do PROFESSOR (toString sobrescrito na classe Professor)
 
         // Criando objetos do tipo Aluno
         System.out.println("\n===========================+ ALUNOS +=============================\n");
         //alunoJoaoSilva
-        Aluno alunoJoaoSilva = new Aluno("João Silva", 20, "Rua das Flores, 123", 1010, Nivel.INICIANTE, gerenciadorDeAulas);
+        Aluno alunoJoaoSilva = new Aluno("João Silva", 20, "Rua das Flores", 1010, Nivel.INICIANTE, gerenciadorDeAulas);
         System.out.println(alunoJoaoSilva); // Exibindo os dados do ALUNO (toString sobrescrito na classe Aluno)
         System.out.println("\n_________________________________________________________________-\n");
         //alunoMarcosAlia
@@ -87,7 +87,7 @@ public class Main {
         aulaPiano.adicionarListener(alunoMarcosAlia);
         aulaPiano.adicionarListener(alunoPaulAtreides);
 
-        System.out.println("\n:::::::::::::::::: AGENDAMENTOS E CANCELAMENTOS :::::::::::::::::::::::");
+        System.out.println("\n\n:::::::::::::::: AGENDAMENTOS E CANCELAMENTOS :::::::::::::::::::");
 
         //agendando as aulas
         professorLucasLima.agendarAula(aulaCanto);
@@ -99,47 +99,21 @@ public class Main {
         alunoMarcosAlia.agendarAula(aulaTeoriaMusical);
         professorDuncanIdaho.agendarAula(aulaTeoriaMusical);
 
+        //testando o cancelamento de aula
         alunoJoaoSilva.cancelarAula(aulaTeoriaMusical, alunoJoaoSilva);
 
+        //testando o agendamento e cancelamento de aula
         professorFrank.agendarAula(aulaPiano);
         professorFrank.cancelarAula(aulaPiano, professorFrank);
-        //alunoPaulAtreides.agendarAula(aulaPiano
+        
 
-        //testando o cancelamento de aulas
-        //System.out.println("--- DEBUG ---");
-        //gerenciadorDeAulas.listarAulas();
-        //gerenciadorDeAulas.listarAulasDoProfessorOuAluno(alunoPaulAtreides);
-        //gerenciadorDeAulas.listarAulasDoProfessorOuAluno(professor3);
-
-
-        //gerenciadorDeAulas.listarAulas();
-
-
-        //System.out.println("--- FIM - DEBUG ---");
-
-        System.out.println("\n::::::::::::::::::::::: LISTA DAS AULAS ::::::::::::::::::::::::::::");
+        System.out.println("\n\n::::::::::::::::::::::: LISTA DAS AULAS ::::::::::::::::::::::::::::");
         gerenciadorDeAulas.listarAulas();
+        //como todas as aulas do professor Lucas foram canceladas, irá imprimir uma mensagem para indicar que não há aulas
         gerenciadorDeAulas.listarAulasDoProfessorOuAluno(professorLucasLima);
+        //como este professor possui aulas agendadas, ela aparece no terminal
+        gerenciadorDeAulas.listarAulasDoProfessorOuAluno(professorDuncanIdaho);
 
-
-        // Simulando métodos da classe
-        //alunoJoaoSilva.listarCursosInscritos(); // Exemplo de lista vazia inicialmente
-        //alunoJoaoSilva.adicionarCurso(curso1);
-        //alunoJoaoSilva.listarCursosInscritos();
-
-
-        // aulaTeoriaMusical = new Aula(TipoCurso.TEORIA_MUSICAL, LocalDate.of(2024,10,20), LocalTime.of(18,0), LocalTime.of(19,0), alunoMarcosAlia, professorDuncanIdaho);
-
-        //System.out.println();
-        //System.out.println();
-
-
-        //alunoMarcosAlia.adicionarCurso(curso2);
-        //alunoMarcosAlia.listarCursosInscritos();
-
-        //aulaTeoriaMusical.agendarAula(aulaTeoriaMusical);
-        //System.out.println();
-        //gerenciadorDeAulas.listarAulasDoProfessorOuAluno(alunoMarcosAlia);
 
 
     }
